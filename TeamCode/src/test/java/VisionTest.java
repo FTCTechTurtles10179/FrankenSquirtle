@@ -103,17 +103,6 @@ public class VisionTest {
     }
 
 
-    @Test
-    public void testSkystoneDetectorPipeline() {
-        TernarySkystonePipeline testPipeline = new AveragingPipeline();
-        Mat outputMat = testPipeline.processFrame(input);
-        Imgcodecs.imwrite(IMAGE_WRITE_PATH + "pipeline.jpg",outputMat);
-        testPipeline.getStatus();
-        System.out.println(testPipeline.getSkystoneRelativeLocation());
-    }
-
-
-
     private Mat cropAndResize(Mat input, int fx, int fy) {
         // First, crop the original image so it scales to the final dimensions.
         int requiredWidthFromInputHeight =  Math.round(input.height() * fx / fy);
